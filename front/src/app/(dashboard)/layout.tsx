@@ -1,5 +1,5 @@
 import { HeaderDashboard } from "@/components/dashboard/header";
-import { MenuLeftViewModel } from "@/components/dashboard/MenuLeft";
+import { MenuLeftViewModel } from "@/components/dashboard/MenuLeft/menuLeft.modelView";
 
 export default function Layout({
   children,
@@ -11,7 +11,9 @@ export default function Layout({
       <MenuLeftViewModel />
       <div className="flex flex-col">
         <HeaderDashboard />
-        {children}
+        <main className="flex items-center justify-center w-full mx-auto max-h-[calc(100vh - 100px)] h-full min-h-[calc(100vh - 100px)] bg-[#c4c7d5]">
+          <div className="w-[80%] h-full">{children}</div>
+        </main>
       </div>
     </div>
   );

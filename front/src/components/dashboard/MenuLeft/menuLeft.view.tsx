@@ -5,7 +5,7 @@ import { ButtonMenuProps, IMenuLeftViewProps } from "./menuLeft.type";
 export function MenuLeftListView(props: IMenuLeftViewProps) {
   const { handlerSelect, menuList = [] } = props;
   return (
-    <div className="w-[250px] h-full  bg-[#ecedf7] grid grid-rows-[200px_1fr] grid-cols-1 border-r border-r-[#727c94]">
+    <div className="w-[250px] h-full  bg-[#ecedf7] grid grid-rows-[200px_1fr] grid-cols-1 border-r  border-r-[#c4c7d5]">
       <div className="flex  items-center justify-center w-full h-[60%] text-[#34425b] ">
         <Landmark className="w-[40px] h-[40px]" />
         <h1 className="font-bold font-sans">Financeiro Pessoal</h1>
