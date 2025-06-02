@@ -1,20 +1,13 @@
+import { FormatMoneyBRLHook } from "@/app/hooks/formatMoney/formatMoney";
 import { ChartConfig } from "@/components/ui/chart";
+import { MockChargeChartService } from "@/service/ChargeChart/ChargeChart.service";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
-const chartData = [
-  { mes: "Janeiro", valor: 186 },
-  { mes: "Fevereiro", valor: 305 },
-  { mes: "Março", valor: 237 },
-  { mes: "Abril", valor: 1073 },
-  { mes: "Maio", valor: 209 },
-  { mes: "Junho", valor: 214 },
-  { mes: "Julho", valor: 220 },
-  { mes: "Agosto", valor: 30 },
-  { mes: "Setembro", valor: 10 },
-  { mes: "Outubro", valor: 80 },
-  { mes: "Novembro", valor: 30 },
-  { mes: "Dezembro", valor: 1000 },
-];
+const listYear = ["2024", "2025"];
 export function ExpensesChartModel() {
+  const [year, setYear] = useState("2024");
+  const formatMoney = new FormatMoneyBRLHook().exec;
   const chartBarInfo = {
     descriptionCard: "Janeiro - Dezembro",
     descriptionFooter: "Este gráfico exibe a soma total de todas as despesas realizadas em cada mês ao longo de um ano.",
@@ -28,9 +21,18 @@ export function ExpensesChartModel() {
     },
   } satisfies ChartConfig;
 
+  const { data: chartData } = useQuery({
+    queryKey: ["charge-chart", year],
+    queryFn: async () => await MockChargeChartService.exec(year),
+  });
+
   return {
     chartConfig,
     chartData,
     chartBarInfo,
+    formatMoney,
+    listYear,
+    year,
+    setYear,
   };
 }
