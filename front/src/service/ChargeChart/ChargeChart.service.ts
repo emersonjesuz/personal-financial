@@ -17,10 +17,7 @@ export const MockChargeChartService: IChargeChartService = {
         if (chart) {
           return acc.map((item) => {
             if (item.mes === chart.mes) {
-              if (!item.year || item.year === year) {
-                item.valor = (+item.valor + charge.amount).toFixed(2);
-                item.year = year;
-              }
+              item.valor = (+item.valor + charge.amount).toFixed(2);
             }
             return item;
           });

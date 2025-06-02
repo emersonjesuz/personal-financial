@@ -1,3 +1,4 @@
+"use client";
 import { FormatMoneyBRLHook } from "@/app/hooks/formatMoney/formatMoney";
 import { ChartConfig } from "@/components/ui/chart";
 import { MockChargeChartService } from "@/service/ChargeChart/ChargeChart.service";

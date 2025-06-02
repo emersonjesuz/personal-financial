@@ -5,5 +5,4 @@ export type IExpensesChartProps = ReturnType<typeof ExpensesChartModel>;
 export type IChart = {
   mes: string;
   valor: string;
-  year?: string;
 };
