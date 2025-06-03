@@ -8,7 +8,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="grid grid-cols-[250px_1fr] grid-rows-1 max-h-screen min-h-screen">
+    <div className="grid grid-cols-[250px_1fr] grid-rows-1 max-h-screen min-h-screen overflow-hidden">
       <MenuLeftViewModel />
       <div className="flex flex-col">
         <HeaderDashboard />
